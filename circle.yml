@@ -1,0 +1,9 @@
+machine:
+    timezone:
+        America/Los_Angeles
+
+test:
+    override:
+        - lein spec -f junit > shippable/testresults/junit.xml
+    post:
+        - lein run -m clojure.main scripts/build_static.clj
