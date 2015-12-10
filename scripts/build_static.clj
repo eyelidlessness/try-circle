@@ -1,5 +1,5 @@
-(require '[try-shippable.handler :refer [loading-page]]
-         '[try-shippable.shell :as shell])
+(require '[try-circle.handler :refer [loading-page]]
+         '[try-circle.shell :as shell])
 
 ;; Run CLJSBuild
 (println "Building…")

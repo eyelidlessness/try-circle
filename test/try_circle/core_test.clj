@@ -1,7 +1,7 @@
-(ns try-shippable.core-test
+(ns try-circle.core-test
   (:use speclj.core))
 
-(describe "That I can run Speclj examples on Shippable"
+(describe "That I can run Speclj examples on Circle"
   (it "equals"
     (should= 0 0))
 

@@ -1,4 +1,4 @@
-(ns try-shippable.wat)
+(ns try-circle.wat)
 
 (defn wat? [wat]
   (js/console.log "Wat?" wat))

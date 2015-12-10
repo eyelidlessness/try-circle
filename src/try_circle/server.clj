@@ -1,6 +1,6 @@
-(ns try-shippable.server
+(ns try-circle.server
   (:require [ring.adapter.jetty :refer [run-jetty]]
-            [try-shippable.handler :refer [app]])
+            [try-circle.handler :refer [app]])
   (:gen-class))
 
 (defn -main [& args]

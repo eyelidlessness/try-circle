@@ -1,5 +1,5 @@
 ;; Based on http://stackoverflow.com/a/16627950/17964
-(ns try-shippable.shell)
+(ns try-circle.shell)
 
 (defn- print-stream
   [stream]

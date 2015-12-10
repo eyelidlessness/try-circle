@@ -1,6 +1,6 @@
-(defproject try-shippable "0.1.0-SNAPSHOT"
-  :description "Try Shippable"
-  :url "https://github.com/eyelidlessness/try-shippable"
+(defproject try-circle "0.1.0-SNAPSHOT"
+  :description "Try Circle"
+  :url "https://github.com/eyelidlessness/try-circle"
 
   :dependencies [[org.clojure/clojure "1.7.0"]
                  [org.clojure/clojurescript "1.7.170" :scope "provided"]
@@ -18,7 +18,7 @@
   :plugins [[lein-cljsbuild "1.1.1"]
             [speclj "3.3.1"]]
 
-  :main try-shippable.server
+  :main try-circle.server
 
   :clean-targets ^{:protect false} [:target-path
                                     [:cljsbuild :builds :app :compiler :output-dir]
@@ -35,14 +35,14 @@
                                         :output-dir "target/cljsbuild/public/js/out"
                                         :asset-path   "/js/out"
                                         :optimizations :none
-                                        :main "try-shippable.wat"}}
+                                        :main "try-circle.wat"}}
                        :build {:source-paths ["src"]
                                :compiler {:output-to "resources/public/js/built.js"
                                           :output-dir "resources/public/js/out"
                                           :asset-path   "/js/out"
                                           :optimizations :whitespace
                                           :pretty-print false
-                                          :main "try-shippable.wat"}}}}
+                                          :main "try-circle.wat"}}}}
 
   :profiles {:uberjar {:prep-tasks ["compile" ["cljsbuild" "once"]]
                        :aot :all
