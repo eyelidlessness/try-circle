@@ -11,8 +11,8 @@ machine:
 dependencies:
     pre:
         - pip install awscli
-  override:
-    - docker info
+    override:
+        - docker info
 
 test:
     override:
