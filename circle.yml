@@ -27,4 +27,4 @@ deployment:
         branch: develop
         commands:
             - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-            - ./deploy.sh $CIRCLE_SHA1
+            - ./elasticbeanstalk.sh $CIRCLE_SHA1
