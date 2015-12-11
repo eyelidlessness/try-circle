@@ -5,7 +5,7 @@
 
 (defn a-change! []
   (let [p (js/document.createElement "p")]
-    (set! (.-innerHTML p) "Appended")
+    (set! (.-innerHTML p) "UPDATED!")
     (js/document.body.appendChild p)))
 
 (a-change!)
