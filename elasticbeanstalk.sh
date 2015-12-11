@@ -17,7 +17,7 @@ docker push $IMAGE:$SHA1
 # Create new Elastic Beanstalk version
 sed "s/<TAG>/$SHA1/" < Dockerrun.aws.json > $DOCKERRUN_FILE
 aws s3 cp $DOCKERRUN_FILE s3://$EB_BUCKET/$DOCKERRUN_FILE
-aws elasticbeanstalk create-application-version --application-name $EB_APPLICATION \
+aws elasticbeanstalk create-application-version --application-name "$EB_APPLICATION" \
   --version-label $SHA1 --source-bundle S3Bucket=$EB_BUCKET,S3Key=$DOCKERRUN_FILE
 
 # Update Elastic Beanstalk environment to new version
