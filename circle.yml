@@ -3,10 +3,10 @@ machine:
         America/Los_Angeles
 
 machine:
-  python:
-    version: 2.7.3
-  services:
-    - docker
+    python:
+        version: 2.7.3
+    services:
+        - docker
 
 dependencies:
     pre:
