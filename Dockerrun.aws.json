@@ -1,7 +1,7 @@
 {
     "AWSEBDockerrunVersion": "1",
     "Image": {
-        "Name": "<IMAGE_NAME>:<TAG>",
+        "Name": "eyelidlessness/try-circle:<TAG>",
         "Update": "true"
     },
     "Ports": [

@@ -2,9 +2,29 @@ machine:
     timezone:
         America/Los_Angeles
 
+machine:
+  python:
+    version: 2.7.3
+  services:
+    - docker
+
+dependencies:
+    pre:
+        - pip install awscli
+  override:
+    - docker info
+
 test:
     override:
         - mkdir -p $CIRCLE_TEST_REPORTS/rspec
         - lein spec -f junit > $CIRCLE_TEST_REPORTS/rspec/junit.xml
     post:
         - lein run -m clojure.main scripts/build_static.clj
+        - docker build -t eyelidlessness/try-circle:$CIRCLE_SHA1 .
+
+deployment:
+    elasticbeanstalk:
+        branch: develop
+        commands:
+            - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+            - ./deploy.sh $CIRCLE_SHA1
