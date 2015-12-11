@@ -5,6 +5,5 @@
   (it "equals"
     (should= 0 0))
 
-  ; (it "fails"
-  ;   (should= 0 1))
-  )
+  (it "fails"
+    (should= 0 1)))
