@@ -1,3 +1,9 @@
+general:
+    branches:
+        only:
+            - develop
+            - master
+
 machine:
     timezone:
         America/Los_Angeles
