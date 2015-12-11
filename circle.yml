@@ -18,13 +18,14 @@ test:
     override:
         - mkdir -p $CIRCLE_TEST_REPORTS/rspec
         - lein spec -f junit > $CIRCLE_TEST_REPORTS/rspec/junit.xml
-    post:
-        - lein run -m clojure.main scripts/build_static.clj
-        - docker build -t eyelidlessness/try-circle:$CIRCLE_SHA1 .
 
 deployment:
     elasticbeanstalk:
-        branch: develop
+        branch:
+            - develop
+            - master
         commands:
+            - lein run -m clojure.main scripts/build_static.clj
+            - docker build -t eyelidlessness/try-circle:$CIRCLE_SHA1 .
             - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
             - ./elasticbeanstalk.sh $CIRCLE_SHA1
