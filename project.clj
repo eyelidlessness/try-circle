@@ -6,6 +6,7 @@
                  [org.clojure/clojurescript "1.7.170" :scope "provided"]
                  [org.clojure/data.xml "0.0.8"]
                  [clj-time "0.9.0"]
+                 [cljsbuild "1.1.1"]
                  [compojure "1.4.0"]
                  [hiccup "1.0.5"]
                  [prone "0.8.2"]
