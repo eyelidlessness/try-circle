@@ -1,8 +1,9 @@
 general:
     branches:
-        - develop
-        - master
-        - if [[ "$CI_PULL_REQUEST" ]]; then $CIRCLE_BRANCH; fi
+        only:
+            - develop
+            - master
+            - if [[ "$CI_PULL_REQUEST" ]]; then $CIRCLE_BRANCH; fi
 
 machine:
     timezone:
