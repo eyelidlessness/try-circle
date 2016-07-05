@@ -1,3 +1,8 @@
+general:
+    - develop
+    - master
+    - if [[ "$CI_PULL_REQUEST" ]]; then $CIRCLE_BRANCH; fi
+
 machine:
     timezone:
         America/Los_Angeles
