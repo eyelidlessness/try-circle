@@ -1,3 +1,10 @@
+general:
+    branches:
+        only:
+            - develop
+            - master
+            - if [[ "$CI_PULL_REQUEST" ]]; then $CIRCLE_BRANCH; fi
+
 machine:
     timezone:
         America/Los_Angeles
@@ -8,12 +15,11 @@ machine:
 
 dependencies:
     pre:
-        - pip install awscli
+        - ./circle/dependencies
 
 test:
     override:
-        - mkdir -p $CIRCLE_TEST_REPORTS/rspec
-        - lein spec -f junit > $CIRCLE_TEST_REPORTS/rspec/junit.xml
+        - ./circle/test
 
 deployment:
     elasticbeanstalk:
@@ -21,6 +27,4 @@ deployment:
             - develop
             - master
         commands:
-            - lein run -m clojure.main scripts/build_static.clj
-            - zip -r $CIRCLE_SHA1.zip resources Dockerfile docker
-            - ./elasticbeanstalk.sh $CIRCLE_SHA1
+            - ./circle/deploy

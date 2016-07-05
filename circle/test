@@ -1,0 +1,6 @@
+#!/bin/bash
+
+if [[ "$CI_PULL_REQUEST" ]]; then
+    mkdir -p $CIRCLE_TEST_REPORTS/rspec
+    lein spec -f junit > $CIRCLE_TEST_REPORTS/rspec/junit.xml
+fi
