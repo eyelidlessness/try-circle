@@ -1,0 +1,5 @@
+#!/bin/bash
+
+if [[ "$CI_PULL_REQUEST" ]]; then
+    pip install awscli
+fi
